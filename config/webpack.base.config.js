@@ -26,7 +26,7 @@ module.exports = (env) => {
             }
           },
           {
-            test: /\.scss$/,
+            test: /\.s?css$/,
             // Read from right to left. sass-loader to parse scss,
             // css-loader to convert sass into CSS, style-loader injects the CSS into index.html
             use: [

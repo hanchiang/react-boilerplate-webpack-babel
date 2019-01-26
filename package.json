@@ -19,8 +19,13 @@
   ],
   "dependencies": {
     "express": "^4.16.4",
+    "prop-types": "^15.6.2",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "react-loadable": "^5.5.0",
+    "react-loader-spinner": "^2.2.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -43,7 +48,6 @@
     "node-sass": "^4.11.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "path": "^0.12.7",
-    "prop-types": "^15.6.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.1.1",
