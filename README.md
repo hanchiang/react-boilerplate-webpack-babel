@@ -13,6 +13,7 @@ Have a common webpack, babel setup for react projects without spending a few hou
 * Loading spinner via [react-loader-spinner](https://github.com/mhnpd/react-loader-spinner)
 * Routing via [react-router](https://github.com/ReactTraining/react-router)
 * State management with [redux](https://github.com/reduxjs/redux), [react-redux](https://github.com/reduxjs/react-redux), [redux-saga](https://github.com/redux-saga/redux-saga)
+* Test with [jest](https://github.com/facebook/jest)
 
 
 ## How to use
