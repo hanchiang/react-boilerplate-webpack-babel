@@ -35,6 +35,17 @@ module.exports = (env) => {
               'sass-loader'
             ]
           },
+          {
+            test: /\.(png|jpg|gif)$/i,
+            use: [
+              {
+                loader: 'url-loader',
+                options: {
+                  limit: 8192
+                }
+              }
+            ]
+          }
         ]
       },
       plugins: [
@@ -46,9 +57,7 @@ module.exports = (env) => {
         new webpack.DefinePlugin({
           'process.env.VERSION': JSON.stringify(env.VERSION),
           'process.env.PLATFORM': JSON.stringify(env.PLATFORM)
-        }),
-        // Tells webpack to locate the static files, and copy them in the 'dist' folder
-        new CopyWebpackPlugin([{ from: 'src/static' }])
+        })
       ]
     }
   ]);

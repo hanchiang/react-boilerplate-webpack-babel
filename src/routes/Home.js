@@ -8,6 +8,8 @@ import MyLoadable from '../common/MyLoadable';
 
 import List from '../components/List';
 
+import header from '../static/images/header.jpg';
+
 const LoadableComponent = MyLoadable({
   loader: () => new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -30,7 +32,7 @@ class Home extends Component {
 
     return (
       <div className="home">
-        <img src="/dist/images/header.jpg" alt="Sky" className="app-header" />
+        <img src={header} alt="Sky" className="app-header" />
         <p>
           We are a most promising species, Mr. Spock, as predators go. Did you know that? I
           frequently have my doubts. I dont. Not any more. And maybe in a thousand years or so, we
