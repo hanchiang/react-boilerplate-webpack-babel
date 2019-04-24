@@ -1,10 +1,10 @@
-import { START_FETCH_LIST, startFetchList } from '../redux/actions/list';
+import ActionCreator, { ActionTypes } from '../redux/actions';
 
 describe('Redux tests', () => {
   it('Should return start fetch list action', () => {
     const expectedAction = {
-      type: START_FETCH_LIST
+      type: ActionTypes.START
     };
-    expect(startFetchList()).toEqual(expectedAction);
+    expect(ActionCreator.start()).toEqual(expectedAction);
   });
 });

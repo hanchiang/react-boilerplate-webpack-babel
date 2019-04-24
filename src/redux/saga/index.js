@@ -1,11 +1,11 @@
 import { all, takeLatest } from 'redux-saga/effects';
 
-import { handleGetList } from './listSaga';
+import { start } from './mysaga';
 
-import { START_FETCH_LIST } from '../actions/list';
+import { ActionTypes } from '../actions';
 
 export default function* rootSaga() {
   yield all([
-    takeLatest(START_FETCH_LIST, handleGetList)
+    takeLatest(ActionTypes.START, start)
   ]);
 }
