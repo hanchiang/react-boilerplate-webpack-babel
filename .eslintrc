@@ -1,7 +1,7 @@
-module.exports = {
+{
 	"extends": "airbnb",
 	"parser": "babel-eslint",
-	"env": {	
+	"env": {
 		"es6": true,
 		"browser": true,
 		"jest": true
@@ -20,4 +20,4 @@ module.exports = {
 		"import/prefer-default-export": 0,
 		"react/destructuring-assignment": 0
 	}
-};
+}
