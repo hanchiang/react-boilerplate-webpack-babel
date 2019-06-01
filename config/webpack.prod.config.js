@@ -3,9 +3,9 @@ const merge = require('webpack-merge');
 
 // Plugins
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 // config
 const baseConfig = require('./webpack.base.config');
@@ -25,7 +25,7 @@ const prodConfiguration = env => merge([
       //     }
       //   }
       // },
-      minimizer: [new UglifyJsPlugin()],
+      minimizer: [new TerserPlugin()],
     },
     plugins: [
       new MiniCssExtractPlugin(), // Extracts css into main.css

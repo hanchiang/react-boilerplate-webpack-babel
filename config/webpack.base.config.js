@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, global-require */
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
@@ -10,7 +10,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const APP_DIR = path.resolve(__dirname, '../src');
 
 module.exports = (env) => {
-  const { PLATFORM, VERSION } = env;
+  let sourcemap;
+
+  const nodeEnv = process.env.NODE_ENV || 'development';
+  if (nodeEnv === 'development' || nodeEnv === 'test') {
+    require('dotenv').config({ path: path.join(__dirname, '..', '.env.dev') });
+    sourcemap = 'cheap-module-eval-source-map';
+  } else if (nodeEnv === 'production') {
+    sourcemap = 'nosources-source-map';
+  }
 
   return merge([
     {
@@ -29,7 +37,7 @@ module.exports = (env) => {
             // Read from right to left. sass-loader to parse scss,
             // css-loader to convert sass into CSS, style-loader injects the CSS into index.html
             use: [
-              PLATFORM === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
+              nodeEnv === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
               'css-loader',
               'sass-loader'
             ]
@@ -54,10 +62,10 @@ module.exports = (env) => {
         }),
         // Create global constants which are configured at compile time
         new webpack.DefinePlugin({
-          'process.env.VERSION': JSON.stringify(env.VERSION),
-          'process.env.PLATFORM': JSON.stringify(env.PLATFORM)
+          'process.env.WHATEVER': JSON.stringify("whatever")
         })
-      ]
+      ],
+      devtool: sourcemap
     }
   ]);
 };

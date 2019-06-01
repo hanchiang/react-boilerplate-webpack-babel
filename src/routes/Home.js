@@ -2,11 +2,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { startFetchList } from '../redux/actions/list';
+import ActionCreator from '../redux/actions';
 
 import MyLoadable from '../common/MyLoadable';
-
-import List from '../components/List';
 
 import header from '../static/images/header.jpg';
 
@@ -24,12 +22,10 @@ const LoadableComponent = MyLoadable({
 
 class Home extends Component {
   componentDidMount() {
-    this.props.fetchList();
+    this.props.start();
   }
 
   render() {
-    const { list } = this.props;
-
     return (
       <div className="home">
         <img src={header} alt="Sky" className="app-header" />
@@ -40,14 +36,12 @@ class Home extends Component {
         </p>
 
         <LoadableComponent />
-
-        <List data={list} />
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({ list: state });
-const mapDispatchToProps = (dispatch) => ({ fetchList: () => dispatch(startFetchList()) });
+const mapDispatchToProps = (dispatch) => ({ start: () => dispatch(ActionCreator.start()) });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
