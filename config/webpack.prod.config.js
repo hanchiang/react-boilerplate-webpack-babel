@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, no-unused-vars */
 const merge = require('webpack-merge');
 
 // Plugins
