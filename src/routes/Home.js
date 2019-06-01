@@ -1,6 +1,7 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import ActionCreator from '../redux/actions';
 
@@ -21,6 +22,10 @@ const LoadableComponent = MyLoadable({
 });
 
 class Home extends Component {
+  static propTypes = {
+    start: PropTypes.func.isRequired
+  }
+
   componentDidMount() {
     this.props.start();
   }
@@ -41,7 +46,7 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ list: state });
-const mapDispatchToProps = (dispatch) => ({ start: () => dispatch(ActionCreator.start()) });
+const mapStateToProps = state => ({ list: state });
+const mapDispatchToProps = dispatch => ({ start: () => dispatch(ActionCreator.start()) });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,8 +1,6 @@
-import { call, put } from 'redux-saga/effects';
+import { call } from 'redux-saga/effects';
 
 import Api from '../../services';
-
-import getApiErrorMessage from '../../utils/apiErrorMessage';
 
 export function* start(/* action */) {
   // make an api call

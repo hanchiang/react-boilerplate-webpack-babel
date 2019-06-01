@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, global-require */
+/* eslint-disable import/no-extraneous-dependencies, global-require, no-unused-vars */
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
@@ -62,7 +62,7 @@ module.exports = (env) => {
         }),
         // Create global constants which are configured at compile time
         new webpack.DefinePlugin({
-          'process.env.WHATEVER': JSON.stringify("whatever")
+          'process.env.WHATEVER': JSON.stringify('whatever')
         })
       ],
       devtool: sourcemap
