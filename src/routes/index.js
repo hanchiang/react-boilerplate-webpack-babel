@@ -8,7 +8,6 @@ import NavBar from '../common/NavBar';
 import store from '../redux/store';
 
 const Home = MyLoadable({ loader: () => import(/* webpackChunkName: "Home" */'./Home') });
-const Feed = MyLoadable({ loader: () => import(/* webpackChunkName: "Feed" */'./Feed') });
 
 export default function Router() {
   return (
@@ -19,7 +18,6 @@ export default function Router() {
         <Provider store={store}>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/feed" component={Feed} />
           </Switch>
         </Provider>
       </div>
