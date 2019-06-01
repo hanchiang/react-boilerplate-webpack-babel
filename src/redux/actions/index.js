@@ -1,7 +1,7 @@
 import { createActions } from 'reduxsauce';
 
 const { Types, Creators } = createActions({
-  start: []
+  start: null
 });
 
 

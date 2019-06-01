@@ -9,7 +9,8 @@
     "start": "npm run build && node server/index.js",
     "test": "jest",
     "test:watch": "npm test -- --watch",
-    "lint": "./node_modules/.bin/eslint src/*.js"
+    "lint-fix": "eslint --fix .",
+    "lint-check": "eslint ."
   },
   "author": "Han Chiang",
   "description": "",
